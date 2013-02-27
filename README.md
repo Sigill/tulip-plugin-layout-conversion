@@ -4,11 +4,9 @@
 
 These plugins allow to convert a LayoutProperty to a DoubleVectorProperty and vice versa.
 
-They actually only support Tulip version 3.8.
-
 ## Build
 
-Launch one of the CMake project configuration tool and select your build directory. Set the CMAKE_MODULE_PATH variable to the location of the FindTULIP3.cmake file (should be <tulip_install_dir>/share/tulip) and the TULIP_DIR variable to <tulip_install_dir>.
+Launch one of the CMake project configuration tool and select your build directory. Set the CMAKE_MODULE_PATH variable to the location of the FindTULIP3.cmake file (should be &lt;tulip_install_dir&gt;/share/tulip).
 
 More informations [here](http://tulip.labri.fr/TulipDrupal/?q=node/1481).
 
