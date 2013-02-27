@@ -87,4 +87,4 @@ public:
 	~DoubleVectorToLayout() {}
 };
 
-ALGORITHMPLUGINOFGROUP(DoubleVectorToLayout, "Convert DoubleVector to Layout", "Cyrille FAUCHEUX", "10/02/2012", "", "1.0", "Layout conversion");
+ALGORITHMPLUGINOFGROUP(DoubleVectorToLayout, "Convert DoubleVector to Layout", "Cyrille FAUCHEUX", "2013-02-10", "", "1.0", "Layout conversion");
