@@ -28,13 +28,15 @@ class DoubleVectorToLayout:public tlp::Algorithm {
 private:
 	tlp::DoubleVectorProperty *sourceDoubleVector;
 	tlp::LayoutProperty       *targetLayout;
-	bool dim2;
+	bool                       dim2;
 
 public:
-	DoubleVectorToLayout(const tlp::AlgorithmContext &context) : tlp::Algorithm(context) {
-		addParameter< tlp::DoubleVectorProperty > ("sourceDoubleVector", paramHelp[0], "doubleVector");
-		addParameter< tlp::LayoutProperty >       ("targetLayout",       paramHelp[1], "viewLayout");
-		addParameter< bool >                      ("2D",                 paramHelp[2], "false");
+	PLUGININFORMATIONS("Convert DoubleVector to Layout", "Cyrille FAUCHEUX", "2013-02-27", "", "1.0", "Layout conversion")
+
+	DoubleVectorToLayout(const tlp::PluginContext *context) : tlp::Algorithm(context) {
+		addInParameter< tlp::DoubleVectorProperty > ("sourceDoubleVector", paramHelp[0], "doubleVector");
+		addInParameter< tlp::LayoutProperty >       ("targetLayout",       paramHelp[1], "viewLayout");
+		addInParameter< bool >                      ("2D",                 paramHelp[2], "false");
 	}
 
 	bool check(std::string &err) {
@@ -42,8 +44,8 @@ public:
 			if(dataSet == NULL)
 				throw std::runtime_error("No dataset provided.");
 
-			CHECK_PROP_PROVIDED("sourceDoubleVector", this->sourceDoubleVector);
 			CHECK_PROP_PROVIDED("targetLayout",       this->targetLayout);
+			CHECK_PROP_PROVIDED("sourceDoubleVector", this->sourceDoubleVector);
 			CHECK_PROP_PROVIDED("2D",                 this->dim2);
 		} catch (std::runtime_error &ex) {
 			err.assign(ex.what());
@@ -87,4 +89,4 @@ public:
 	~DoubleVectorToLayout() {}
 };
 
-ALGORITHMPLUGINOFGROUP(DoubleVectorToLayout, "Convert DoubleVector to Layout", "Cyrille FAUCHEUX", "2013-02-10", "", "1.0", "Layout conversion");
+PLUGIN(DoubleVectorToLayout);

@@ -6,13 +6,11 @@ These plugins allow to convert a LayoutProperty to a DoubleVectorProperty and vi
 
 ## Build
 
-Launch one of the CMake project configuration tool and select your build directory. Set the CMAKE_MODULE_PATH variable to the location of the FindTULIP3.cmake file (should be &lt;tulip_install_dir&gt;/share/tulip).
+Launch one of the CMake project configuration tool and select your build directory. Set the CMAKE_MODULE_PATH variable to the location of the FindTULIP.cmake file (should be &lt;tulip_install_dir&gt;/share/tulip).
 
 More informations [here](http://tulip.labri.fr/TulipDrupal/?q=node/1481).
 
 ## Use
-
-Both plugins are located in the "Algorithm/General/Layout conversion" menu.
 
 Both plugins need the following parameters:
 

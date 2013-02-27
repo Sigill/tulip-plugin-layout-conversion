@@ -27,13 +27,15 @@ class LayoutToDoubleVector:public tlp::Algorithm {
 private:
 	tlp::LayoutProperty       *sourceLayout;
 	tlp::DoubleVectorProperty *targetDoubleVector;
-	bool dim2;
+	bool                       dim2;
 
 public:
-	LayoutToDoubleVector(const tlp::AlgorithmContext &context) : tlp::Algorithm(context) {
-		addParameter< tlp::LayoutProperty >       ("sourceLayout",       paramHelp[0], "viewLayout");
-		addParameter< tlp::DoubleVectorProperty > ("targetDoubleVector", paramHelp[1], "doubleVector");
-		addParameter< bool >                      ("2D",                 paramHelp[2], "false");
+	PLUGININFORMATIONS("Convert Layout to DoubleVector", "Cyrille FAUCHEUX", "2013-02-27", "", "1.0", "Layout conversion")
+
+	LayoutToDoubleVector(const tlp::PluginContext *context) : tlp::Algorithm(context) {
+		addInParameter< tlp::LayoutProperty >       ("sourceLayout",       paramHelp[0], "viewLayout");
+		addInParameter< tlp::DoubleVectorProperty > ("targetDoubleVector", paramHelp[1], "doubleVector");
+		addInParameter< bool >                      ("2D",                 paramHelp[2], "false");
 	}
 
 	bool check(std::string &err) {
@@ -43,7 +45,7 @@ public:
 
 			CHECK_PROP_PROVIDED("sourceLayout",       this->sourceLayout);
 			CHECK_PROP_PROVIDED("targetDoubleVector", this->targetDoubleVector);
-			CHECK_PROP_PROVIDED("2D",               this->dim2);
+			CHECK_PROP_PROVIDED("2D",                 this->dim2);
 		} catch (std::runtime_error &ex) {
 			err.assign(ex.what());
 			return false;
@@ -77,4 +79,4 @@ public:
 	~LayoutToDoubleVector() {}
 };
 
-ALGORITHMPLUGINOFGROUP(LayoutToDoubleVector, "Convert Layout to DoubleVector", "Cyrille FAUCHEUX", "2013-02-10", "", "1.0", "Layout conversion");
+PLUGIN(LayoutToDoubleVector);
